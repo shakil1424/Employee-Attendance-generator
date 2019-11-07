@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
@@ -65,7 +66,14 @@ namespace Floors
       var newDatetime = new DateTime();
       if (DateTime.TryParse(dateTime, out newDatetime))
       {
-        //String.Format("{0:d/MM/yyyy}", newDatetime);
+        if (dateTime.Length > 8)
+        {
+          var dateParts = dateTime.Split('-');
+          int day = Convert.ToInt32(dateParts[0]);
+          int month = Convert.ToInt32(dateParts[1]);
+          int year = Convert.ToInt32(dateParts[2]);
+          newDatetime = new DateTime(year, month, day);
+        }
       }
       else
       {
@@ -97,9 +105,6 @@ namespace Floors
       }
       AllProcesses = null;
     }
-
     public abstract void CreateMultipleFiles();
-
-
     }
 }
