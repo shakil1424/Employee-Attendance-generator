@@ -25,13 +25,13 @@ namespace ExcelConversion
     }
     private void Form1_Load(object sender, EventArgs e)
     {
-      //pictureBox1.Hide();
-
       labelComplete.Hide();
+      button1.Hide();
     }
 
     private void buttonGenerate_Click(object sender, EventArgs e)
     {
+      labelComplete.Hide(); 
       OpenFileDialog openFileDialog1 = new OpenFileDialog
       {
         InitialDirectory = @"D:\",
@@ -51,6 +51,7 @@ namespace ExcelConversion
 
     private void buttonSave_Click(object sender, EventArgs e)
     {
+      labelComplete.Hide();
       var folderBrowserDialog1 = new FolderBrowserDialog();
       DialogResult result = folderBrowserDialog1.ShowDialog();
       if (result == DialogResult.OK)
@@ -62,23 +63,36 @@ namespace ExcelConversion
 
     private void buttonConvertExcel_Click(object sender, EventArgs e)
     {
-      pictureBox1.Show();
       var executeConversionProcess = true;
       string fileUpload = "";
       string saveLocation = "";
       if (textBoxFileUpload.Text == "")
       {
-        MessageBox.Show("Select an excel file to upload");
+        MessageBox.Show("Select an excel file to upload","Missing Source File",MessageBoxButtons.OK, MessageBoxIcon.Error);
         executeConversionProcess = false;
       }
       if (textBoxSaveLocation.Text == "")
       {
-        MessageBox.Show("Select a save location");
+        MessageBox.Show("Select a save location","Missing Location",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        executeConversionProcess = false;
+      }
+      if(textBoxFileUpload.Text.Contains("xls") && radioButtonSixthFloor.Checked)
+      {
+        MessageBox.Show("Choose appropriate excel file and floor ","Incorrect input ",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        executeConversionProcess = false;
+      }
+      if (textBoxFileUpload.Text.Contains("dat") && radioButtonFifthFLoor.Checked)
+      {
+        MessageBox.Show("Choose appropriate excel file and floor ","Incorrect input ",MessageBoxButtons.OK, MessageBoxIcon.Error);
         executeConversionProcess = false;
       }
 
       if (executeConversionProcess)
       {
+        labelComplete.Hide();
+        buttonConvertExcel.Hide();
+        button1.Show();
+        pictureBox1.Show();
         var sourceFileDirectory = textBoxFileUpload.Text;
         var generatedFilesDirectory = textBoxSaveLocation.Text;
        
@@ -88,6 +102,7 @@ namespace ExcelConversion
           {
             ConvertExcel(sourceFileDirectory, generatedFilesDirectory);
             labelComplete.Invoke((MethodInvoker)(() => labelComplete.Text = @"Operation Successful"));
+            
           }
           catch
           {
@@ -99,10 +114,13 @@ namespace ExcelConversion
           {
             pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Hide()));
             labelComplete.Invoke((MethodInvoker)(() => labelComplete.Show()));
+            button1.Invoke((MethodInvoker)(() => button1.Hide()));
+            buttonConvertExcel.Invoke((MethodInvoker)(() => buttonConvertExcel.Show()));
           }
         });
         newThreadForConversion.Start();
-      }      
+      }
+      
     }
     private void ConvertExcel(string fileUpload, string saveLocation)
     {
@@ -168,7 +186,10 @@ namespace ExcelConversion
         }
        
       }
-          
+
+      buttonConvertExcel.Show();
+      button1.Hide();
+
     }
   }
 }

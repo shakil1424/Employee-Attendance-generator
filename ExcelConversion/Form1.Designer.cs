@@ -48,10 +48,10 @@
       // radioButtonFifthFLoor
       // 
       this.radioButtonFifthFLoor.AutoSize = true;
-      this.radioButtonFifthFLoor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.radioButtonFifthFLoor.Location = new System.Drawing.Point(181, 164);
+      this.radioButtonFifthFLoor.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.radioButtonFifthFLoor.Location = new System.Drawing.Point(400, 149);
       this.radioButtonFifthFLoor.Name = "radioButtonFifthFLoor";
-      this.radioButtonFifthFLoor.Size = new System.Drawing.Size(102, 18);
+      this.radioButtonFifthFLoor.Size = new System.Drawing.Size(113, 27);
       this.radioButtonFifthFLoor.TabIndex = 0;
       this.radioButtonFifthFLoor.TabStop = true;
       this.radioButtonFifthFLoor.Text = "Fifth Floor";
@@ -60,10 +60,10 @@
       // radioButtonSixthFloor
       // 
       this.radioButtonSixthFloor.AutoSize = true;
-      this.radioButtonSixthFloor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.radioButtonSixthFloor.Location = new System.Drawing.Point(317, 164);
+      this.radioButtonSixthFloor.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.radioButtonSixthFloor.Location = new System.Drawing.Point(558, 149);
       this.radioButtonSixthFloor.Name = "radioButtonSixthFloor";
-      this.radioButtonSixthFloor.Size = new System.Drawing.Size(102, 18);
+      this.radioButtonSixthFloor.Size = new System.Drawing.Size(117, 27);
       this.radioButtonSixthFloor.TabIndex = 1;
       this.radioButtonSixthFloor.TabStop = true;
       this.radioButtonSixthFloor.Text = "Sixth Floor";
@@ -71,13 +71,16 @@
       // 
       // buttonGenerate
       // 
-      this.buttonGenerate.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonGenerate.Location = new System.Drawing.Point(447, 230);
+      this.buttonGenerate.BackColor = System.Drawing.Color.DarkSlateGray;
+      this.buttonGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.buttonGenerate.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonGenerate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+      this.buttonGenerate.Location = new System.Drawing.Point(57, 197);
       this.buttonGenerate.Name = "buttonGenerate";
-      this.buttonGenerate.Size = new System.Drawing.Size(103, 23);
+      this.buttonGenerate.Size = new System.Drawing.Size(236, 47);
       this.buttonGenerate.TabIndex = 2;
       this.buttonGenerate.Text = "Upload File";
-      this.buttonGenerate.UseVisualStyleBackColor = true;
+      this.buttonGenerate.UseVisualStyleBackColor = false;
       this.buttonGenerate.Click += new System.EventHandler(this.buttonGenerate_Click);
       // 
       // openFileDialog1
@@ -86,88 +89,98 @@
       // 
       // buttonSave
       // 
-      this.buttonSave.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonSave.Location = new System.Drawing.Point(447, 293);
+      this.buttonSave.BackColor = System.Drawing.Color.DarkSlateGray;
+      this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.buttonSave.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+      this.buttonSave.Location = new System.Drawing.Point(57, 258);
       this.buttonSave.Name = "buttonSave";
-      this.buttonSave.Size = new System.Drawing.Size(103, 23);
+      this.buttonSave.Size = new System.Drawing.Size(236, 47);
       this.buttonSave.TabIndex = 3;
       this.buttonSave.Text = "Save Location";
-      this.buttonSave.UseVisualStyleBackColor = true;
+      this.buttonSave.UseVisualStyleBackColor = false;
       this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
       // 
       // textBoxFileUpload
       // 
-      this.textBoxFileUpload.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxFileUpload.Location = new System.Drawing.Point(181, 233);
+      this.textBoxFileUpload.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxFileUpload.Location = new System.Drawing.Point(399, 203);
       this.textBoxFileUpload.Name = "textBoxFileUpload";
-      this.textBoxFileUpload.Size = new System.Drawing.Size(210, 22);
+      this.textBoxFileUpload.Size = new System.Drawing.Size(273, 33);
       this.textBoxFileUpload.TabIndex = 4;
       // 
       // textBoxSaveLocation
       // 
-      this.textBoxSaveLocation.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxSaveLocation.Location = new System.Drawing.Point(181, 295);
+      this.textBoxSaveLocation.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.textBoxSaveLocation.Location = new System.Drawing.Point(399, 266);
       this.textBoxSaveLocation.Name = "textBoxSaveLocation";
-      this.textBoxSaveLocation.Size = new System.Drawing.Size(210, 22);
+      this.textBoxSaveLocation.Size = new System.Drawing.Size(273, 33);
       this.textBoxSaveLocation.TabIndex = 5;
       // 
       // buttonConvertExcel
       // 
-      this.buttonConvertExcel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.buttonConvertExcel.Location = new System.Drawing.Point(309, 388);
+      this.buttonConvertExcel.BackColor = System.Drawing.Color.DarkSlateGray;
+      this.buttonConvertExcel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.buttonConvertExcel.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold);
+      this.buttonConvertExcel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+      this.buttonConvertExcel.Location = new System.Drawing.Point(257, 361);
       this.buttonConvertExcel.Name = "buttonConvertExcel";
-      this.buttonConvertExcel.Size = new System.Drawing.Size(75, 23);
+      this.buttonConvertExcel.Size = new System.Drawing.Size(193, 44);
       this.buttonConvertExcel.TabIndex = 6;
       this.buttonConvertExcel.Text = "Convert";
-      this.buttonConvertExcel.UseVisualStyleBackColor = true;
+      this.buttonConvertExcel.UseVisualStyleBackColor = false;
       this.buttonConvertExcel.Click += new System.EventHandler(this.buttonConvertExcel_Click);
       // 
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Font = new System.Drawing.Font("Consolas", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.label1.Location = new System.Drawing.Point(230, 44);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(271, 34);
+      this.label1.Size = new System.Drawing.Size(255, 39);
       this.label1.TabIndex = 7;
       this.label1.Text = "Excel Converter ";
       // 
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.label2.Location = new System.Drawing.Point(448, 167);
+      this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.label2.Location = new System.Drawing.Point(93, 147);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(119, 15);
+      this.label2.Size = new System.Drawing.Size(177, 26);
       this.label2.TabIndex = 8;
       this.label2.Text = "Choose The Floor";
       // 
       // labelComplete
       // 
       this.labelComplete.AutoSize = true;
-      this.labelComplete.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.labelComplete.ForeColor = System.Drawing.Color.DeepSkyBlue;
-      this.labelComplete.Location = new System.Drawing.Point(286, 337);
+      this.labelComplete.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.labelComplete.ForeColor = System.Drawing.Color.DarkSlateGray;
+      this.labelComplete.Location = new System.Drawing.Point(279, 327);
       this.labelComplete.Name = "labelComplete";
-      this.labelComplete.Size = new System.Drawing.Size(120, 18);
+      this.labelComplete.Size = new System.Drawing.Size(137, 19);
       this.labelComplete.TabIndex = 10;
       this.labelComplete.Text = "100% Completed";
       // 
       // button1
       // 
-      this.button1.Image = global::ExcelConversion.Properties.Resources.resize_1572435079167937128closeicon7;
-      this.button1.Location = new System.Drawing.Point(451, 381);
+      this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+      this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold);
+      this.button1.ForeColor = System.Drawing.Color.Peru;
+      this.button1.Location = new System.Drawing.Point(256, 361);
       this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(41, 35);
+      this.button1.Size = new System.Drawing.Size(197, 44);
       this.button1.TabIndex = 11;
-      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Text = "CLOSE";
+      this.button1.UseVisualStyleBackColor = false;
       this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // pictureBox1
       // 
       this.pictureBox1.Image = global::ExcelConversion.Properties.Resources.ajax_loader;
       this.pictureBox1.InitialImage = global::ExcelConversion.Properties.Resources.Progress_Bar;
-      this.pictureBox1.Location = new System.Drawing.Point(327, 337);
+      this.pictureBox1.Location = new System.Drawing.Point(330, 273);
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.Size = new System.Drawing.Size(32, 32);
       this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -178,7 +191,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.BackColor = System.Drawing.SystemColors.Window;
+      this.BackColor = System.Drawing.SystemColors.ControlLight;
       this.ClientSize = new System.Drawing.Size(726, 450);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.labelComplete);
@@ -192,8 +205,10 @@
       this.Controls.Add(this.buttonGenerate);
       this.Controls.Add(this.radioButtonSixthFloor);
       this.Controls.Add(this.radioButtonFifthFLoor);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Name = "Form1";
       this.Text = "Convert Excel";
+      this.TransparencyKey = System.Drawing.Color.Maroon;
       this.Load += new System.EventHandler(this.Form1_Load);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
