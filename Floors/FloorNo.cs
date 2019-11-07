@@ -64,7 +64,13 @@ namespace Floors
     public  DateTime GetDateTime(string dateTime)
     {
       var newDatetime = new DateTime();
-      if (DateTime.TryParse(dateTime, out newDatetime))
+      double date;
+      if (Double.TryParse(dateTime, out date))
+      {
+        date = Double.Parse(dateTime);
+        newDatetime = DateTime.FromOADate(date);
+      }
+      else
       {
         if (dateTime.Length > 8)
         {
@@ -74,11 +80,10 @@ namespace Floors
           int year = Convert.ToInt32(dateParts[2]);
           newDatetime = new DateTime(year, month, day);
         }
-      }
-      else
-      {
-        double d = Double.Parse(dateTime);
-        newDatetime = DateTime.FromOADate(d);
+        else
+        {
+          newDatetime = DateTime.Parse(dateTime);
+        }
       }
       return newDatetime;
     }
