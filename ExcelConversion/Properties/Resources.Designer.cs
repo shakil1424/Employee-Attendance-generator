@@ -73,9 +73,9 @@ namespace ExcelConversion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap APL_LOGO {
+        internal static System.Drawing.Bitmap Aplombtech_Logo {
             get {
-                object obj = ResourceManager.GetObject("APL_LOGO", resourceCulture);
+                object obj = ResourceManager.GetObject("Aplombtech_Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -165,7 +165,7 @@
       this.labelComplete.AutoSize = true;
       this.labelComplete.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.labelComplete.ForeColor = System.Drawing.Color.DarkSlateGray;
-      this.labelComplete.Location = new System.Drawing.Point(288, 327);
+      this.labelComplete.Location = new System.Drawing.Point(289, 327);
       this.labelComplete.Name = "labelComplete";
       this.labelComplete.Size = new System.Drawing.Size(137, 19);
       this.labelComplete.TabIndex = 10;
@@ -195,10 +195,10 @@
       // 
       // pictureBox2
       // 
-      this.pictureBox2.Image = global::ExcelConversion.Properties.Resources.APL_LOGO;
-      this.pictureBox2.Location = new System.Drawing.Point(633, 472);
+      this.pictureBox2.Image = global::ExcelConversion.Properties.Resources.Aplombtech_Logo;
+      this.pictureBox2.Location = new System.Drawing.Point(616, 472);
       this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.Size = new System.Drawing.Size(95, 94);
+      this.pictureBox2.Size = new System.Drawing.Size(116, 94);
       this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.pictureBox2.TabIndex = 13;
       this.pictureBox2.TabStop = false;

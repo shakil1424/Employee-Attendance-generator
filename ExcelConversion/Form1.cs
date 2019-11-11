@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +27,7 @@ namespace ExcelConversion
 
     private void buttonGenerate_Click(object sender, EventArgs e)
     {
-      labelComplete.Hide(); 
+      labelComplete.Hide();
       OpenFileDialog openFileDialog1 = new OpenFileDialog
       {
         InitialDirectory = @"D:\",
@@ -45,7 +41,7 @@ namespace ExcelConversion
 
       if (openFileDialog1.ShowDialog() == DialogResult.OK)
       {
-        textBoxFileUpload.Text = openFileDialog1.FileName;     
+        textBoxFileUpload.Text = openFileDialog1.FileName;
       }
     }
 
@@ -68,22 +64,25 @@ namespace ExcelConversion
       string saveLocation = "";
       if (textBoxFileUpload.Text == "")
       {
-        MessageBox.Show("Select an excel file to upload","Missing Source File",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        MessageBox.Show("Select an excel file to upload", "Missing Source File", MessageBoxButtons.OK,
+          MessageBoxIcon.Error);
         executeConversionProcess = false;
       }
       if (textBoxSaveLocation.Text == "")
       {
-        MessageBox.Show("Select a save location","Missing Location",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        MessageBox.Show("Select a save location", "Missing Location", MessageBoxButtons.OK, MessageBoxIcon.Error);
         executeConversionProcess = false;
       }
-      if(textBoxFileUpload.Text.Contains("xls") && radioButtonSixthFloor.Checked)
+      if (textBoxFileUpload.Text.Contains("xls") && radioButtonSixthFloor.Checked)
       {
-        MessageBox.Show("Choose appropriate excel file and floor ","Incorrect input ",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        MessageBox.Show("Choose appropriate excel file and floor ", "Incorrect input ", MessageBoxButtons.OK,
+          MessageBoxIcon.Error);
         executeConversionProcess = false;
       }
       if (textBoxFileUpload.Text.Contains("dat") && radioButtonFifthFLoor.Checked)
       {
-        MessageBox.Show("Choose appropriate excel file and floor ","Incorrect input ",MessageBoxButtons.OK, MessageBoxIcon.Error);
+        MessageBox.Show("Choose appropriate excel file and floor ", "Incorrect input ", MessageBoxButtons.OK,
+          MessageBoxIcon.Error);
         executeConversionProcess = false;
       }
 
@@ -95,41 +94,37 @@ namespace ExcelConversion
         pictureBox1.Show();
         var sourceFileDirectory = textBoxFileUpload.Text;
         var generatedFilesDirectory = textBoxSaveLocation.Text;
-       
-        newThreadForConversion = new Thread(()=>
+        newThreadForConversion = new Thread(() =>
         {
           try
           {
             ConvertExcel(sourceFileDirectory, generatedFilesDirectory);
-            labelComplete.Invoke((MethodInvoker)(() => labelComplete.Text = @"Operation Successful"));
-            
+            labelComplete.Invoke((MethodInvoker) (() => labelComplete.Text = @"Operation Successful"));
           }
-          catch
+          catch (Exception ex)
           {
-            pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Hide()));
-            labelComplete.Invoke((MethodInvoker)(() => labelComplete.Text = @"Operation unsuccessful"));
-           
+            pictureBox1.Invoke((MethodInvoker) (() => pictureBox1.Hide()));
+            labelComplete.Invoke((MethodInvoker) (() => labelComplete.Text = @"Operation Unsuccessful"));
           }
           finally
           {
-            pictureBox1.Invoke((MethodInvoker)(() => pictureBox1.Hide()));
-            labelComplete.Invoke((MethodInvoker)(() => labelComplete.Show()));
-            button1.Invoke((MethodInvoker)(() => button1.Hide()));
-            buttonConvertExcel.Invoke((MethodInvoker)(() => buttonConvertExcel.Show()));
+            pictureBox1.Invoke((MethodInvoker) (() => pictureBox1.Hide()));
+            labelComplete.Invoke((MethodInvoker) (() => labelComplete.Show()));
+            button1.Invoke((MethodInvoker) (() => button1.Hide()));
+            buttonConvertExcel.Invoke((MethodInvoker) (() => buttonConvertExcel.Show()));
           }
         });
         newThreadForConversion.Start();
       }
-      
     }
     private void ConvertExcel(string fileUpload, string saveLocation)
     {
-      int choice=1;
+      int choice = 1;
       if (radioButtonFifthFLoor.Checked)
       {
         choice = 1;
       }
-      else if(radioButtonSixthFloor.Checked)
+      else if (radioButtonSixthFloor.Checked)
       {
         choice = 2;
       }
@@ -142,54 +137,63 @@ namespace ExcelConversion
         floor.CreateMultipleFiles();
         floor._ReadExcel.Close();
         floor._writeExcel.Close();
-        //floor.KillExcel();
       }
       catch (Exception e)
       {
-        MessageBox.Show(e.StackTrace);
+        WriteExceptionLog(e.StackTrace.ToString());
         floor.KillExcel();
-        
-
-        
       }
       floor.KillExcel();
-      
     }
-    public FloorNo  GetFloorInstance(int choice)
+    public FloorNo GetFloorInstance(int choice)
     {
       if (choice == 1)
         return new FifthFloor();
-      
+
       return new SixthFloor();
     }
 
-    private void button1_Click(object sender, EventArgs e)
+    private async void button1_Click(object sender, EventArgs e)
     {
+      pictureBox1.Hide();
       Process[] AllProcesses = Process.GetProcessesByName("excel");
-      
+
       foreach (Process ExcelProcess in AllProcesses)
       {
-
         ExcelProcess.Kill();
       }
+
       AllProcesses = null;
-      if (newThreadForConversion!=null && newThreadForConversion.IsAlive)
+      if (newThreadForConversion != null && newThreadForConversion.IsAlive)
       {
         try
         {
-          newThreadForConversion.Abort();
+          await ThreadAbortAsync();
         }
         catch (Exception ex)
         {
-          //MessageBox.Show(ex.ExceptionState.ToString());
-          
+          WriteExceptionLog(ex.StackTrace.ToString());
         }
-       
       }
 
       buttonConvertExcel.Show();
       button1.Hide();
+    }
 
+    private async Task ThreadAbortAsync()
+    {
+      await Task.Run(() => newThreadForConversion.Abort());
+    }
+
+    private void WriteExceptionLog(string message)
+    {
+      var executionDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+      var fileName = DateTime.Today.ToString("dd-MM-yyyy") + ".txt";
+      var filePath = executionDirectory + "\\" + fileName;
+      using (var textWriter = new StreamWriter(filePath, true))
+      {
+        textWriter.WriteLine(message);
+      }
     }
   }
 }
