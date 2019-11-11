@@ -71,32 +71,22 @@ namespace ExcelConversion.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap APL_LOGO {
+            get {
+                object obj = ResourceManager.GetObject("APL_LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] NewResult {
             get {
                 object obj = ResourceManager.GetObject("NewResult", resourceCulture);
                 return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Progress_Bar {
-            get {
-                object obj = ResourceManager.GetObject("Progress_Bar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap resize_1572435079167937128closeicon7 {
-            get {
-                object obj = ResourceManager.GetObject("resize_1572435079167937128closeicon7", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

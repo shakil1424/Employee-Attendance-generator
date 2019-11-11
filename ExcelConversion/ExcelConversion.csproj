@@ -87,22 +87,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\loadingBar.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\NewResult.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Progress_Bar.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ajax-loader.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\close-icon-7.png" />
+    <None Include="Resources\ajax-loader.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resize-1572435079167937128closeicon7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\APL LOGO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
